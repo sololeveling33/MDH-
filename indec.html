@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDH YAPI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, rgba(36, 210, 30, 0.682), blue); /* Kırmızı ve mavi karışımı arka plan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(45deg, #007bff, #28a745); /* Mavi ve yeşil karışımı kutu */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .box-content {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            background: linear-gradient(45deg, #007bff, #28a745); /* Mavi ve yeşil karışımı arka plan */
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.9);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .box.open .box-content {
+            display: flex;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .box h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .box-content p {
+            margin: 10px 0; /* Yukarı ve aşağıda biraz boşluk */
+            font-size: 1.25rem; /* Daha büyük yazı */
+        }
+
+        .box-content a {
+            color: #ffffff; /* Bağlantı rengi beyaz */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .box-content a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="toggleBox()">
+        <h2>MDH YAPI</h2>
+        <div class="box-content">
+            <p>MDH YAPI</p>
+            <p><a id="link" href="https://mdh.company/" target="_blank">https://mdh.company/</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleBox() {
+            var box = document.querySelector('.box');
+            box.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
